@@ -1,0 +1,55 @@
+##############  template_view.xml ##############
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	 <data>
+	 	<!--  Vamos a grabar datos  -->
+	 	<record id="rio2016__modelo_tree" model="ir.ui.view">
+	 		<field name="name">rio2016.modelo.tree</field>
+	 		<field name="model">rio2016.modelo</field>
+            	<field name="arch" type="xml">
+            	   <tree string ="Listado de Atletas">
+            	   	  <field name="name"/>
+                      <field name="pais"/>
+            	   </tree>
+                </field>
+	    </record>
+
+
+	   <!--  Vamos a grabar datos  -->
+	 	<record id="rio2016_modelo_form" model="ir.ui.view">
+	 		<field name="name">rio2016.modelo.form</field>
+	 		<field name="model">rio2016.modelo</field>
+            	<field name="arch" type="xml">
+            	   <form string ="Formulario de Atletas" version="9.0">
+            	   	<!--  Cuerpo  -->
+            	   	<sheet>
+            	   	<group>
+            	   		 <field name="name" />
+            	   	     <field name="fecha" />
+            	   	     <field name="edad" />
+                         <field name="usuario_id"/>
+            	   	     <field name="active" />
+            	   	</group>
+            	   	</sheet>
+            	   	 </form>
+                </field>
+	    </record>
+
+        <!--  Definimos los eventos -->
+        <record id="rio2016_modelo_action" model="ir.actions.act_window">
+        	<field name="name">Rio2016</field>
+        	<field name="res_model">rio2016.modelo</field>
+        	<field name="view_type">form</field>
+        	<field name="view_mode">tree,form</field>
+        </record>
+
+        <!--  Definimos el menu-->
+        <menuitem id="rio2016_modelo_menu" name="Rio2016" />
+        <menuitem id="rio2016_modelo_submenu" name="Atletas" parent="rio2016_modelo_menu" sequence="0" />
+
+        <!--  Enlazamos la acción al submenú-->
+        <menuitem id="rio2016_modelo_menu_action" name="Rio2016" parent="rio2016_modelo_submenu" sequence="0" action="rio2016   _modelo_action"/>
+
+
+     </data>
+</openerp>
